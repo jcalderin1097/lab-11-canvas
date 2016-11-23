@@ -1,26 +1,33 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Alternating</title>
+
 </head>
 <body onload="draw()">
 <canvas id="sketch" width="300" height="300">
 </canvas>
 <script>
+var sketch = document.getElementById('sketch');
+var context = sketch.getContext("2d");
+var number = parseInt(prompt("Enter a number"));
 function draw() {
-	var sketch = document.getElementById('sketch');
-	var context = sketch.getContext("2d");
-	for(var i = 37; i <= 300; i = i + 50) {
-		context.fillStyle = "#000088"
+	for(i=number; i>0; i=i-1){
+		if(i % 2 == 0) {
+	context.fillStyle = "#990000";
+	context.fillRect(i*30, 0, 20, 20);
+ 
+	}
+	else if (i % 2 !== 0){
 		context.beginPath();
-       context.arc(i, 15, 10, 0, 2 * Math.PI,true);
-       context.closePath();
-       context.fill();
-	 for(var j = 0; j <= 300; j = j + 50){
-	context.fillStyle = "#880000"
-	context.fillRect(j, 0, 25, 25);
-}
-}
-}
+		context.arc(i*30+10, 10, 10, 0, 2 * Math.PI, true);
+		context.closePath();
+		context.fill();
+		
+		}	
+	}
 </script>
 </body>
 </html>
+	
+Click here to Reply or Forward
